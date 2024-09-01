@@ -28,7 +28,10 @@ jobs:
 
     - name: Retrieve Git Hash
       id: git-hash
-      run: echo "hash=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+      shell: cmd
+      run: |
+        FOR /F "tokens=*" %%g IN ('git rev-parse --short HEAD') do (SET HASH=%%g)
+        echo hash=%HASH% >> %GITHUB_OUTPUT%
 
     - name: Create dummy file for testing
       run: |
