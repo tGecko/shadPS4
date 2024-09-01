@@ -28,7 +28,7 @@ jobs:
 
     - name: Retrieve Git Hash
       id: git-hash
-      run: echo "GIT_HASH=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+      run: echo "hash=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
 
     - name: Create dummy file for testing
       run: |
@@ -38,5 +38,5 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
-        name: shadps4-win64-qt-${{ steps.git-hash.outputs.GIT_HASH }}
+        name: shadps4-win64-qt-${{ steps.git-hash.outputs.hash }}
         path: upload
