@@ -30,6 +30,10 @@ jobs:
         arch: win64_msvc2019_64
         archives: qtbase qttools
 
+    - name: Retrieve Git Hash
+      id: git-hash
+      run: echo "GIT_HASH=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+
     - name: Configure CMake
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -T ClangCL -DENABLE_QT_GUI=ON
 
@@ -45,5 +49,5 @@ jobs:
     - name: Upload executable
       uses: actions/upload-artifact@v4
       with:
-        name: shadps4-win64-qt
+        name: shadps4-win64-qt-${{env.GIT_HASH}}
         path: upload
