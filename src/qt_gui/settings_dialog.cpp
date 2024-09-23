@@ -122,6 +122,9 @@ SettingsDialog::SettingsDialog(std::span<const QString> physical_devices, QWidge
 
         connect(ui->logFilterLineEdit, &QLineEdit::textChanged, this,
                 [](const QString& text) { Config::setLogFilter(text.toStdString()); });
+        connect(ui->playBGMCheckBox, &QCheckBox::stateChanged, this,
+                [](int val) { Config::setPlayBGM(val); });
+
     }
 
     // GPU TAB
@@ -180,7 +183,7 @@ void SettingsDialog::LoadValuesFromConfig() {
     ui->dumpShadersCheckBox->setChecked(Config::dumpShaders());
     ui->nullGpuCheckBox->setChecked(Config::nullGpu());
     ui->dumpPM4CheckBox->setChecked(Config::dumpPM4());
-
+    ui->playBGMCheckBox->setChecked(Config::getPlayBGM());
     ui->fullscreenCheckBox->setChecked(Config::isFullscreenMode());
     ui->showSplashCheckBox->setChecked(Config::showSplash());
     ui->ps4proCheckBox->setChecked(Config::isNeoMode());
