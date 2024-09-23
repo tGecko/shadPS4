@@ -28,7 +28,7 @@ jobs:
         host: windows
         target: desktop
         arch: win64_msvc2019_64
-        archives: qtbase qttools
+        archives: qtbase qttools qtmultimedia
 
     - name: Cache CMake Configuration
       uses: actions/cache@v4

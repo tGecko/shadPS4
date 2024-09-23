@@ -23,7 +23,7 @@ jobs:
 
     - name: Install misc packages
       run: >
-       sudo apt-get update && sudo apt install libx11-dev libxext-dev libwayland-dev libfuse2 clang build-essential qt6-base-dev qt6-tools-dev
+       sudo apt-get update && sudo apt install libx11-dev libxext-dev libwayland-dev libfuse2 clang build-essential qt6-base-dev qt6-tools-dev qt6-multimedia-dev
 
     - name: Cache CMake Configuration
       uses: actions/cache@v4
