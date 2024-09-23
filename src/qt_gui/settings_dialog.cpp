@@ -124,7 +124,6 @@ SettingsDialog::SettingsDialog(std::span<const QString> physical_devices, QWidge
                 [](const QString& text) { Config::setLogFilter(text.toStdString()); });
         connect(ui->playBGMCheckBox, &QCheckBox::stateChanged, this,
                 [](int val) { Config::setPlayBGM(val); });
-
     }
 
     // GPU TAB
