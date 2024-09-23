@@ -38,7 +38,9 @@ jobs:
         host: mac
         target: desktop
         arch: clang_64
-        archives: qtbase qttools qtmultimedia
+        archives: qtbase qttools
+        modules: qtmultimedia
+
 
     - name: Cache CMake Configuration
       uses: actions/cache@v4
